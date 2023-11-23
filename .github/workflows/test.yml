@@ -1,13 +1,13 @@
-name: test
-on: push
-jobs:
-  test:
-    runs-on: ubuntu-22.04
-    container: ryuichiueda/ubuntu22.04-ros2:latest #前ページのコンテナを使うという宣言
-    steps:
+name: test        #name: ワークフローの名前
+  on: push          #on: いつこのワークフローを走らせるか
+  jobs:             #走らせたい処理（ジョブ）のリスト
+    test:           #testというジョブを作る
+      runs-on: ubuntu-22.04   #どの環境で動かすか
+      container: ryuichiueda/ubuntu22.04-ros2:latest #前ページのコンテナを使うという宣言
+      steps:                   #手続きの記述
       - uses: actions/checkout@v2    #コンテナのカレントディレクトリにリポジトリを配置
-      - name: build and test
-	run: |
+      - name: build and test             #このジョブの名前
+        run: |
            rsync -av ./ /root/ros2_ws/src/mypkg/    # リポジトリの下をros2_ws下にコピー
            cd /root/ros2_ws
            rosdep update                                            #14行目のために必要
