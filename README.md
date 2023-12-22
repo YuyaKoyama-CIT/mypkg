@@ -1,6 +1,6 @@
 # robosys2023
 このリポジトリはロボットシステム学のROS 2を学習するために制作したものです。
- とlisnerが含まれます
+talkerとlisnerが含まれます
 
 #lisner
 
