@@ -2,7 +2,7 @@
 このリポジトリはロボットシステム学のROS 2を学習するために制作したものです。
 talkerとlisnerが含まれます
 
-##talker
+## talker
 0.5秒間隔で1ずつカウントアップしたInt16型のデータをパブリッシュしている
 
 rclpy.spin(node)によりプログラムが終了しなくなる
@@ -10,11 +10,11 @@ rclpy.spin(node)によりプログラムが終了しなくなる
 ## lisner
 ros2 run mypkg listenerで実行　
 
-##必要なソフトウェア
+## 必要なソフトウェア
 * ROS 2
 * Python
 
-##テスト環境
+## テスト環境
 * Ubuntu 22.04.3 LTS
 
 ## トピックについて
