@@ -13,7 +13,7 @@ ros2 run mypkg listenerで実行
 ## 実行例
 ### 別のターミナルから各々立ち上げ確認する方法
 
-'''
+```
 # ターミナル例,talker実行側←何も表示されない
 
 #ターミナル例,listener実行側
@@ -26,13 +26,12 @@ ros2 run mypkg listenerで実行
 [INFO] [1703666351.319469897] [listener]: Listen: 7
 [INFO] [1703666351.819993592] [listener]: Listen: 8
 
-'''
+```
 ### launchファイルを使用し、　てtalkerとlistenerを一つの端末で立ち上げる方法　例
+```
 [listener-2] [INFO] [1703666241.200523266] [listener]: Listen: 10
 
-'''
-
-'''
+```
 
 ## 必要なソフトウェア
 * ROS 2
