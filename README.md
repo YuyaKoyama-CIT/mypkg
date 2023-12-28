@@ -3,20 +3,22 @@
 talkerとlisnerが含まれます
 
 ## talker
-0.5秒間隔で1ずつカウントアップしたInt16型のデータをパブリッシュしている
-
-rclpy.spin(node)によりプログラムが終了しなくなる
+0.5秒間隔で1ずつカウントアップしたInt16型のデータをパブリッシュしトピックを通じて送信している
+また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しない
 
 ## lisner
-ros2 run mypkg listenerで実行
+subscriberとして設定されており、パブリッシュされトピックを通じて送信されたInt16型のデータを受け取り標準出力する。
+また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しない
 
 ## 実行例
 ### 別のターミナルから各々立ち上げ確認する方法
 
 ```
 # ターミナル例,talker実行側←何も表示されない
+$ros2 run mypkg talker
 
 #ターミナル例,listener実行側
+$ros2 run mypkg listener
 [INFO] [1703666348.319124330] [listener]: Listen: 1
 [INFO] [1703666348.818284065] [listener]: Listen: 2
 [INFO] [1703666349.318467759] [listener]: Listen: 3
@@ -27,10 +29,16 @@ ros2 run mypkg listenerで実行
 [INFO] [1703666351.819993592] [listener]: Listen: 8
 
 ```
-### launchファイルを使用し、　てtalkerとlistenerを一つの端末で立ち上げる方法　例
+### launchファイルを使用し、1つのターミナルからtalkerとlistenerを立ち上げ確認する方法
 ```
-[listener-2] [INFO] [1703666241.200523266] [listener]: Listen: 10
-
+$ ros2 launch mypkg talk_listen.launch.py
+[listener-2] [INFO] [1703667213.087868083] [listener]: Listen: 0
+[listener-2] [INFO] [1703667213.577467675] [listener]: Listen: 1
+[listener-2] [INFO] [1703667214.077250950] [listener]: Listen: 2
+[listener-2] [INFO] [1703667214.577789160] [listener]: Listen: 3
+[listener-2] [INFO] [1703667215.077400572] [listener]: Listen: 4
+[listener-2] [INFO] [1703667215.577471026] [listener]: Listen: 5
+[listener-2] [INFO] [1703667216.077418539] [listener]: Listen: 6
 ```
 
 ## 必要なソフトウェア
