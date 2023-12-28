@@ -1,23 +1,19 @@
 # robosys2023
 このリポジトリはロボットシステム学のROS 2を学習するために制作したものです。
 talkerとlisner、classifyが含まれます
-
 [![test](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml)
 
 ## talker
 0.5秒間隔で1ずつカウントアップしたInt16型のデータをパブリッシュしトピックを通じて送信している。
-
-また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しない
+また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しません
 
 ## lisner
 subscriberとして設定されており、パブリッシュされトピックを通じて送信されたInt16型のデータを受け取り標準出力する。
-
-また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しない
+また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しません
 
 ## classify
 subscriberとして設定されており、パブリッシュされトピックを通じて送信されたInt16型のデータを受け取り、受け取った値が素数が否かを判別して標準入出力に結果を表示する
-
-また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しない
+また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しません
 
 ## 実行例
 ### 別のターミナルから各々立ち上げ確認する方法
