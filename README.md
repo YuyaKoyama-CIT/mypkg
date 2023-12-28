@@ -1,18 +1,22 @@
 # robosys2023
 このリポジトリはロボットシステム学のROS 2を学習するために制作したものです。
 talkerとlisner、classifyが含まれます
+
 [![test](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml)
 
 ## talker
 0.5秒間隔で1ずつカウントアップしたInt16型のデータをパブリッシュしトピックを通じて送信している。
+
 また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しない
 
 ## lisner
 subscriberとして設定されており、パブリッシュされトピックを通じて送信されたInt16型のデータを受け取り標準出力する。
+
 また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しない
 
 ## classify
 subscriberとして設定されており、パブリッシュされトピックを通じて送信されたInt16型のデータを受け取り、受け取った値が素数が否かを判別して標準入出力に結果を表示する
+
 また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しない
 
 ## 実行例
@@ -59,13 +63,14 @@ $ ros2 launch mypkg talk_listen.launch.py
 [listener-2] [INFO] [1703667216.077418539] [listener]: Listen: 6
 ```
 
-## 必要なソフトウェア
-* ROS 2
-* Python
+## テスト環境
+* Ubuntu 22.04
+* ROS 2 humble
 
 ## 開発環境
 * Ubuntu 22.04.3 LTS
-* ROS 2 humble
+* ROS 2
+* Python3
 
 ## トピックについて
 * トピックとはノード間でやり取りするデータのパイプのようなもので、トピックに流れるデータのことをメッセージと言います。
