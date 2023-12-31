@@ -7,7 +7,8 @@ from std_msgs.msg import Int16
 
 def cb(msg):
     global node
-    print("Is a prime number?:",isprime(msg.data)) 
+    judg = isprime(msg.data)
+    node.get_logger().info("%d is a prime number? :%s " % (msg.data , judg))
 
 def isprime(num):
     if num < 2:
@@ -18,7 +19,6 @@ def isprime(num):
             return False
         i += 1
     return True
-    
 
 rclpy.init()
 node = Node("classify")
