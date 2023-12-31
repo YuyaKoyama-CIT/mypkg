@@ -5,30 +5,24 @@ talkerとlisner、classifyが含まれます
 [![test](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml)
 
 ## talker
-0.5秒間隔で1ずつカウントアップしたInt16型のデータをパブリッシュしトピックを通じて送信している。
-
-また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しません
+0.5秒間隔で1ずつカウントアップしたInt16型のデータをパブリッシュしトピック(countup)を通じて送信している。
 
 ## lisner
-subscriberとして設定されており、パブリッシュされトピックを通じて送信されたInt16型のデータを受け取り標準出力する。
-
-また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しません
+subscriberとして設定されており、パブリッシュされトピック(countup)を通じて送信されたInt16型のメッセージを受け取り標準出力する。
 
 ## classify
-subscriberとして設定されており、パブリッシュされトピックを通じて送信されたInt16型のデータを受け取り、受け取った値が素数が否かを判別して標準入出力に結果を表示する
-
-また、rclpy.spin(node)により意図的に終了しない限りプログラムは終了しません
+subscriberとして設定されており、パブリッシュされトピック(countup)を通じて送信されたInt16型のメッセージを受け取り、受け取った値が素数が否かを判別、結果を標準出力する。
 
 ## 実行例
 ### 別のターミナルから各々立ち上げ確認する方法
 
 ```
 # ターミナル例,talker実行側←何も表示されない
-$ros2 run mypkg talker
+$ ros2 run mypkg talker
 
 
 #ターミナル例,listener実行側
-$ros2 run mypkg listener
+$ ros2 run mypkg listener
 [INFO] [1703666348.319124330] [listener]: Listen: 1
 [INFO] [1703666348.818284065] [listener]: Listen: 2
 [INFO] [1703666349.318467759] [listener]: Listen: 3
@@ -40,25 +34,26 @@ $ros2 run mypkg listener
 
 #ターミナル例,classify実行側
 $ ros2 run mypkg classify
-Is a prime number?: False
-Is a prime number?: False
-Is a prime number?: True
-Is a prime number?: True
-Is a prime number?: False
-Is a prime number?: True
-Is a prime number?: False
+[INFO] [1704032082.623624931] [classify]: 0 is a prime number? :False
+[INFO] [1704032083.118168876] [classify]: 1 is a prime number? :False
+[INFO] [1704032083.617913377] [classify]: 2 is a prime number? :True
+[INFO] [1704032084.117731269] [classify]: 3 is a prime number? :True
+[INFO] [1704032084.617721561] [classify]: 4 is a prime number? :False
+[INFO] [1704032085.117761120] [classify]: 5 is a prime number? :True
+[INFO] [1704032085.618765042] [classify]: 6 is a prime number? :False
 ```
-### launchファイルを使用し、1つのターミナルからtalkerとlistenerを立ち上げ確認する方法
-launchディレクトリ内のtalk_listen.launch.pyを使用します。
+### launchファイルを使用し、1つのターミナルからtalkerとlistener,classifyを立ち上げ確認する方法
+launchディレクトリ内のtalk_listen_classify.launch.pyを使用します。
 ```
-$ ros2 launch mypkg talk_listen.launch.py
-[listener-2] [INFO] [1703667213.087868083] [listener]: Listen: 0
-[listener-2] [INFO] [1703667213.577467675] [listener]: Listen: 1
-[listener-2] [INFO] [1703667214.077250950] [listener]: Listen: 2
-[listener-2] [INFO] [1703667214.577789160] [listener]: Listen: 3
-[listener-2] [INFO] [1703667215.077400572] [listener]: Listen: 4
-[listener-2] [INFO] [1703667215.577471026] [listener]: Listen: 5
-[listener-2] [INFO] [1703667216.077418539] [listener]: Listen: 6
+$ ros2 launch mypkg talk_listen_classify.launch.py
+[listener-2] [INFO] [1704030541.653069296] [listener]: Listen: 0
+[classify-3] [INFO] [1704030541.653065571] [classify]: 0 is a prime number? :False
+[listener-2] [INFO] [1704030542.146090180] [listener]: Listen: 1
+[classify-3] [INFO] [1704030542.146090943] [classify]: 1 is a prime number? :False
+[listener-2] [INFO] [1704030542.645083396] [listener]: Listen: 2
+[classify-3] [INFO] [1704030542.645163174] [classify]: 2 is a prime number? :True
+[listener-2] [INFO] [1704030543.145358554] [listener]: Listen: 3
+[classify-3] [INFO] [1704030543.145283799] [classify]: 3 is a prime number? :True
 ```
 
 ## トピックについて
