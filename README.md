@@ -6,17 +6,17 @@ talkerとlisner、classifyが含まれます
 [![test](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml)
 
 ## ノード
-## talker
+### talker
 0.5秒間隔で1ずつカウントアップしたInt16型のデータをトピック(countup)にパブリッシュしている。
 
-## listener
+### listener
 subscriberとして設定されており、パブリッシュされ送信されたInt16型のメッセージをトピック(countup)を通じて受け取り標準出力する。
 
-## classify
+### classify
 subscriberとして設定されており、パブリッシュされ送信されたInt16型のメッセージをトピック(countup)を通じて受け取り、受け取った値が素数が否かを判別、結果を標準出力する。
 
 ## トピック
-## countup
+### countup
 talkerから0.5秒ごとにパブリッシュされたメッセージをlistener,classifyにつないでいる
 メッセージの型は16ビット符号付き整数である
 
