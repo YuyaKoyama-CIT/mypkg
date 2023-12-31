@@ -1,17 +1,22 @@
-# robosys2023
-このリポジトリはロボットシステム学のROS 2を学習するために制作したものです。
+# mypkg
+このリポジトリはロボットシステム学の授業でROS 2を学習するために制作したものです。
+
 talkerとlisner、classifyが含まれます
 
 [![test](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/YuyaKoyama-CIT/mypkg/actions/workflows/test.yml)
 
 ## talker
-0.5秒間隔で1ずつカウントアップしたInt16型のデータをパブリッシュしトピック(countup)を通じて送信している。
+0.5秒間隔で1ずつカウントアップしたInt16型のデータをトピック(countup)にパブリッシュしている。
 
-## lisner
-subscriberとして設定されており、パブリッシュされトピック(countup)を通じて送信されたInt16型のメッセージを受け取り標準出力する。
+## listener　ノード
+subscriberとして設定されており、パブリッシュされ送信されたInt16型のメッセージをトピック(countup)を通じて受け取り標準出力する。
 
-## classify
-subscriberとして設定されており、パブリッシュされトピック(countup)を通じて送信されたInt16型のメッセージを受け取り、受け取った値が素数が否かを判別、結果を標準出力する。
+## classify　ノード
+subscriberとして設定されており、パブリッシュされ送信されたInt16型のメッセージをトピック(countup)を通じて受け取り、受け取った値が素数が否かを判別、結果を標準出力する。
+
+## countup　トピック
+talkerから0.5秒ごとにパブリッシュされたメッセージをlistener,classifyにつないでいる
+メッセージの型は16ビット符号付き整数である
 
 ## 実行例
 ### 別のターミナルから各々立ち上げ確認する方法
